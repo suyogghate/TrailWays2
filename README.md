@@ -1,2 +1,4 @@
 # TrailWays
-This is a Trailways website for trekking and hiking enthusiast. This site serves the purpose of planning and execution of your trekk in a hassel free manner.
+Guide Trekker Portal Hub
+
+A digital platform that serves as a central hub connecting guides and trekkers, facilitating outdoor adventure activities and providing resources and services related to trekking. It's a place where trekkers can find experienced guides for their adventures.
