@@ -1,0 +1,73 @@
+use trailways;
+-- create table trekker( --done
+-- Tre_Uname varchar(20) primary key,
+-- Tre_Name varchar(30),
+-- Tre_Email varchar(30),
+-- Tre_Mobile int,
+-- Tre_Adhaar int,
+-- Tre_Pass varchar(25),
+-- Tre_Dob date
+-- );
+-- -------------------------------------------
+-- Create table Guide( --done
+-- G_Uname varchar(20) primary key,
+-- G_Name varchar(20),
+-- G_Email varchar(30),
+-- G_Mob int,
+-- G_Adhaar int,
+-- G_Pass varchar(25),
+-- G_Dob date,
+-- G_Avail bit,
+-- G_GLno varchar(50),
+-- G_BeforeExp int,
+-- G_AfterExp int,
+-- CONSTRAINT foreign key (G_GLno) REFERENCES Guide_License(GL_Lno)
+-- );
+-- ------------------------------------------
+-- create table Trek_Details( done
+-- Td_Idname int primary key,
+-- Td_Trekname varchar(40),
+-- Td_Loc varchar(40),
+-- Td_Difficulty varchar(10),
+-- Td_Duration int,
+-- Td_PerPrice decimal
+-- );
+-- ------------------------------------------
+-- create table booking( --done
+-- B_Bid varchar(30) primary key,
+-- B_Bdate datetime,
+-- B_Btotalamount decimal,
+-- B_Paystatus varchar(10),
+-- B_Paymethod varchar(20)
+-- );
+-- ------------------------------------------
+-- create table Guide_License(
+-- GL_Lno varchar(30) primary key,
+-- GL_Validity date,
+-- GL_Color ENUM('Blue','Green','Yellow')
+-- );
+-- ------------------------------------------
+-- create table Slot(
+-- S_RandomSlot int primary key,
+-- S_Slotdate date,
+-- S_Availableseats int,
+-- S_GuideAvailable int,
+-- S_Tdidname varchar(30),
+-- CONSTRAINT foreign key(S_Tdidname) REFERENCES Trek_Details(Td_Idname)
+-- );
+-- ----------------------------------------
+-- create table Past_Activity_Details( --done
+-- A_Id int primary key,
+-- A_Date date,
+-- A_Totalpeople int,
+-- A_Guiderated int,
+-- A_TrekIdname varchar(40),
+-- A_Trekkeruname varchar(30),
+-- A_Guideuname varchar(20),
+-- A_Bookingid varchar(40),
+-- CONSTRAINT foreign key(A_TrekIdname) REFERENCES Trek_Details(Td_Idname),
+-- CONSTRAINT foreign key(A_Trekkeruname) REFERENCES trekker(Tre_Uname),
+-- CONSTRAINT foreign key(A_Guideuname) REFERENCES Guide(G_Uname),
+-- CONSTRAINT foreign key(A_Bookingid) REFERENCES booking(B_Bid)
+-- );
+
