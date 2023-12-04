@@ -13,7 +13,7 @@
 -- G_Id int primary key,
 
 -- )
-use trailways;
+-- use trailways;
 -- SELECT * FROM trekkers;
 -- Alter table trekkers
 -- add Tre_Dob date;
@@ -106,3 +106,5 @@ use trailways;
 --     A_Slotid int primary key
 -- );
 
+-- alter table trailways;
+drop table trailways;

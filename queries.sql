@@ -1,5 +1,5 @@
 show databases;
-use trailways;
+-- use trailways;-- 
 -- SELECT * FROM trekkers;
 -- SELECT * FROM booking;
 -- SELECT * FROM Guide;
@@ -9,4 +9,6 @@ use trailways;
 -- SELECT * FROM License_Level;
 -- SELECT * FROM Trek_Details;
 -- SELECT * FROM Trekkers;
+-- use trailways;
 
+-- drop database trailways;
