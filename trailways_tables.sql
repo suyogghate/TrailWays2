@@ -1,4 +1,4 @@
-use trailways;
+-- use trailways;
 -- create table trekker( --done
 -- Tre_Uname varchar(20) primary key,
 -- Tre_Name varchar(30),
@@ -70,4 +70,8 @@ use trailways;
 -- CONSTRAINT foreign key(A_Guideuname) REFERENCES Guide(G_Uname),
 -- CONSTRAINT foreign key(A_Bookingid) REFERENCES booking(B_Bid)
 -- );
+-- alter table slot drop column s_availableseats;
+-- alter table guide drop column g_beforeExp;
+-- alter table guide RENAME column Experience TO G_Experience;
+
 
