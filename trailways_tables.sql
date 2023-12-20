@@ -74,4 +74,9 @@
 -- alter table guide drop column g_beforeExp;
 -- alter table guide RENAME column Experience TO G_Experience;
 
-
+-- -------------------------------------------------
+-- create table admin(
+-- Ad_UserName varchar(20),
+-- Ad_Email varchar(20),
+-- Ad_Password varchar(20)
+-- );
