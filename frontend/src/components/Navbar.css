@@ -1,0 +1,63 @@
+nav {
+  background-color: black;
+  width: 100%;
+  height: 80px;
+  background-size: cover;
+  color: grey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: sans-serif;
+  clear: both;
+}
+
+.logo {
+  width: 140px;
+  margin-top: 10px;
+  margin-left: 10px;
+  justify-content: flex-end;
+  align-items: end;
+  clear: both;
+}
+.menubar a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  position: relative;
+  white-space: nowrap;
+  clear: both;
+}
+.menubar a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-bottom: 2px solid rgb(77, 242, 0);
+  transition: 0.2s linear;
+  clear: both;
+}
+
+.menubar a:hover:before {
+  width: 90%;
+  clear: both;
+}
+
+.Icon1 a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  background: rgb(29, 159, 59);
+  border: 2px solid rgb(29, 159, 59);
+  border-radius: 8px;
+  transition: 0.4s linear;
+  white-space: nowrap;
+  clear: both;
+}
+
+.Icon1 a:hover {
+  background: transparent;
+  border: 2px solid rgb(67, 228, 30);
+  clear: both;
+}
