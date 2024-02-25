@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from './Navbar';
+import axios from 'axios';
 export const Trekkersignup= () => {
         const [trekkerData, setTrekkerData] = useState({
           Tre_Uname: '',
@@ -10,12 +11,12 @@ export const Trekkersignup= () => {
           Tre_Adhaar: '',
           Tre_Pass: '',
           Tre_Dob: '',
-          Tre_Image: null,
         });
-      
-        const [imageFile, setImageFile] = useState(null);
+        const redirect=useNavigate();
         const [validationErrors, setValidationErrors] = useState({});
-      
+        const [trekkerImage, setImageData] = useState({
+          Tre_Image: null
+        });
         const handleInputChange = (e) => {
           const { name, value } = e.target;
           setTrekkerData((prevData) => ({
@@ -78,46 +79,38 @@ export const Trekkersignup= () => {
       
         const handleImageChange = (e) => {
           const file = e.target.files[0];
-          setImageFile(file);
+          setImageData((prevData) => ({
+            ...prevData,
+            Tre_Image: file,
+          }));
         };
       
         const handleSubmit = async (e) => {
           e.preventDefault();
       
-          // Frontend validations for uniqueness
-          // (Assuming you have a way to check the uniqueness on the frontend)
-      
+
           // Validation check before submitting
           if (Object.values(validationErrors).every((error) => error === '')) {
-            const formData = new FormData();
-            formData.append('trekkerData', JSON.stringify(trekkerData));
-            formData.append('trekkerImage', imageFile);
-      
-            // Sending data to the backend (example using fetch)
+          
+            
             try {
-              const response = await fetch('http://localhost:9000/signup/trekker', {
-                method: 'POST',
-                body: formData,
-              });
-      
-              if (response.ok) {
-                console.log('Trekker signed up successfully!');
-                // Reset the form or redirect to another page
-              } else {
-                console.error('Error in signing up trekker:', response.statusText);
-              }
+              axios.post("http://localhost:9000/signup/trekker",trekkerData)
+        .then((data)=>{console.log(data)})
+        .catch(err=>console.log(err));
             } catch (error) {
               console.error('Error:', error.message);
+             redirect('/');
             }
           } else {
             console.log('Validation errors. Cannot submit.');
           }
-          return redirect("/");
+         
         };
-      
+        
         return (
             <>
             <Navbar/>
+            <br/>
           <div className="container">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -140,7 +133,7 @@ export const Trekkersignup= () => {
       
               <div className="mb-3">
                 <label htmlFor="Tre_Name" className="form-label">
-                  First Name
+                  Name
                 </label>
                 <input
                   type="text"
@@ -152,22 +145,6 @@ export const Trekkersignup= () => {
                   required
                 />
                 {/* Add any additional validations for first name */}
-              </div>
-      
-              <div className="mb-3">
-                <label htmlFor="Tre_Name" className="form-label">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Tre_LastName"
-                  name="Tre_LastName"
-                  value={trekkerData.Tre_LastName}
-                  onChange={handleInputChange}
-                  required
-                />
-                {/* Add any additional validations for last name */}
               </div>
       
               <div className="mb-3">
@@ -279,6 +256,7 @@ export const Trekkersignup= () => {
               </button>
             </form>
           </div>
+          <br/>
           </>
         );
       };

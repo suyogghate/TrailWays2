@@ -26,6 +26,7 @@ export const Navbar = () => {
     <div className="navbar-nav">
       <a className="nav-item nav-link text-white m-3" href="/trekkerlogin">Trekker&nbsp;</a>
       <a className="nav-item nav-link text-white m-3" href="/guidelogin">&nbsp; &nbsp;Guide&nbsp;&nbsp;</a>
+      <a className="nav-item nav-link text-white m-3" href="/adminlogin">&nbsp; &nbsp;Admin&nbsp;&nbsp;</a>
       <a className="nav-item nav-link text-white m-3" href="/signup">&nbsp;Sign Up&nbsp;</a>
     </div>
   </div>

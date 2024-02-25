@@ -78,22 +78,11 @@ export const Home = ({card}) => {
           </em>
         </span>
       </h2>
-      <div style={{display: "flex", flexDirection: "column", justifyContent: "around"}}>
+      <div style={{display: "flex", justifyContent: "around"}}>
         <Card/>
       </div>
     </>
   );
 };
 
-{
-  /* <Card className="row" style={{ width: "18rem", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", marginLeft: "50px", marginBottom: "10px"}}>
-        <Card.Img variant="top" src={kalbhairav} style={{width: "600px", marginLeft: "0px", marginBottom: "8px", padding: "0px 0px 0px 0px"}}/>
-        <Card.Body>
-          <Card.Title>HarishChandraGhad Trek</Card.Title>
-          <Card.Text>
-          Harishchandragad trek is one of the most challenging treks in the western ghats of Maharashtra. A popular trek which offers...
-          </Card.Text>
-          <Button variant="success"><a href="/book" style={{color: "white", textDecoration: "none"}}>Book Now</a></Button>
-        </Card.Body>
-      </Card> */
-}
+

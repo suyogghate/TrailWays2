@@ -6,20 +6,20 @@ export const Price = () => {
     <>
     <Navbar></Navbar>
     <br/>
-      <div class="demo">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 col-sm-6">
-              <div class="pricingTable">
-                <div class="pricingTable-header">
-                  <i class="fa fa-adjust"></i>
-                  <div class="price-value">
+      <div className="demo">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-3 col-sm-6">
+              <div className="pricingTable">
+                <div className="pricingTable-header">
+                  <i className="fa fa-adjust"></i>
+                  <div className="price-value">
                     {" "}
-                    ₹500.00 <span class="month">/ month</span>{" "}
+                    ₹500.00 <span className="month">/ month</span>{" "}
                   </div>
                 </div>
-                <h3 class="heading">Standard</h3>
-                <div class="pricing-content">
+                <h3 className="heading">Standard</h3>
+                <div className="pricing-content">
                 <ul>
                     <li>
                       <b>5%</b> Discount on 3 Treks
@@ -38,22 +38,22 @@ export const Price = () => {
                     </li>
                   </ul>
                 </div>
-                <div class="pricingTable-signup">
+                <div className="pricingTable-signup">
                   <a href="/signup">sign up</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="pricingTable green">
-                <div class="pricingTable-header">
-                  <i class="fa fa-briefcase"></i>
-                  <div class="price-value">
+            <div className="col-md-3 col-sm-6">
+              <div className="pricingTable green">
+                <div className="pricingTable-header">
+                  <i className="fa fa-briefcase"></i>
+                  <div className="price-value">
                     {" "}
-                    ₹1500.00 <span class="month">/ 3 month</span>{" "}
+                    ₹1500.00 <span className="month">/ 3 month</span>{" "}
                   </div>
                 </div>
-                <h3 class="heading">Business</h3>
-                <div class="pricing-content">
+                <h3 className="heading">Business</h3>
+                <div className="pricing-content">
                 <ul>
                     <li>
                       <b>10%</b> Discount on 5 Treks
@@ -72,22 +72,22 @@ export const Price = () => {
                     </li>
                   </ul>
                 </div>
-                <div class="pricingTable-signup">
+                <div className="pricingTable-signup">
                   <a href="/signup">sign up</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="pricingTable blue">
-                <div class="pricingTable-header">
-                  <i class="fa fa-diamond"></i>
-                  <div class="price-value">
+            <div className="col-md-3 col-sm-6">
+              <div className="pricingTable blue">
+                <div className="pricingTable-header">
+                  <i className="fa fa-diamond"></i>
+                  <div className="price-value">
                     {" "}
-                    ₹2500.00 <span class="month">/ 6 month</span>{" "}
+                    ₹2500.00 <span className="month">/ 6 month</span>{" "}
                   </div>
                 </div>
-                <h3 class="heading">Premium</h3>
-                <div class="pricing-content">
+                <h3 className="heading">Premium</h3>
+                <div className="pricing-content">
                   <ul>
                     <li>
                       <b>15%</b> Discount on 8 Treks
@@ -106,22 +106,22 @@ export const Price = () => {
                     </li>
                   </ul>
                 </div>
-                <div class="pricingTable-signup">
+                <div className="pricingTable-signup">
                   <a href="/signup">sign up</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="pricingTable red">
-                <div class="pricingTable-header">
-                  <i class="fa fa-cube"></i>
-                  <div class="price-value">
+            <div className="col-md-3 col-sm-6">
+              <div className="pricingTable red">
+                <div className="pricingTable-header">
+                  <i className="fa fa-cube"></i>
+                  <div className="price-value">
                     {" "}
-                    ₹4500.00 <span class="month">/ 12 month</span>{" "}
+                    ₹4500.00 <span className="month">/ 12 month</span>{" "}
                   </div>
                 </div>
-                <h3 class="heading">Extra</h3>
-                <div class="pricing-content">
+                <h3 className="heading">Extra</h3>
+                <div className="pricing-content">
                 <ul>
                     <li>
                       <b>25%</b> Discount on 12 Treks
@@ -140,7 +140,7 @@ export const Price = () => {
                     </li>
                   </ul>
                 </div>
-                <div class="pricingTable-signup">
+                <div className="pricingTable-signup">
                   <a href="/signup">sign up</a>
                 </div>
               </div>
@@ -149,16 +149,16 @@ export const Price = () => {
         </div>
       </div>
       <br/>
-      <div class="card text-center">
-  <div class="card-header">
+      <div className="card text-center">
+  <div className="card-header">
     No Discount
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Free Account</h5>
-    <p class="card-text">   You will not be able to book Blue Level Guides and no additional feature will be provided !!!</p>
-    <a href="/signup" class="btn btn-secondary free">SIGN UP</a>
+  <div className="card-body">
+    <h5 className="card-title">Free Account</h5>
+    <p className="card-text">   You will not be able to book Blue Level Guides and no additional feature will be provided !!!</p>
+    <a href="/signup" className="btn btn-secondary free">SIGN UP</a>
   </div>
-  <div class="card-footer text-muted">
+  <div className="card-footer text-muted">
     Thank You For Your Time!!!
   </div>
   </div>
