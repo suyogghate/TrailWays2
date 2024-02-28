@@ -2,18 +2,34 @@
 import React from 'react';
 import { useAuth } from '../Hooks/AuthContext';
 import { Navbar } from './Navbar';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import axios from 'axios';
 
 const GuideDash = () => {
   const { state } = useAuth();
   const { user } = state;
-
+  const redirect=useNavigate();
+  const [GuideData, setGuideData] = useState([]);
+  useEffect(
+    ()=>{
+        axios.get("http://localhost:9000/guide")
+        .then((res)=>{setGuideData(res.data)})
+        .catch(err=>console.log(err));
+    },[]);
+  
+  
   // Now you can access user credentials, assuming they were set during login
   if (user) {
     const { username } = user;
-    console.log('Username:', username);
+    const guide = GuideData.find((guide) => guide.G_Uname === username);
+    if (guide && guide.G_Uname === username) {
+      console.log('Username:', username);
+    } else {
+      // Handle authentication failure
+      redirect('/wrongaccess');
+    }
   }
-  
   return (
     <>
     <Navbar/>

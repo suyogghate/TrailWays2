@@ -95,16 +95,21 @@ export const Trekkersignup= () => {
             
             try {
               axios.post("http://localhost:9000/signup/trekker",trekkerData)
-        .then((data)=>{console.log(data)})
-        .catch(err=>console.log(err));
+        .then((data)=>{console.log(data);
+          redirect('/');
+          redirect('/');})
+        .catch(err=>console.log(err)
+        );
             } catch (error) {
               console.error('Error:', error.message);
+             redirect('/');
              redirect('/');
             }
           } else {
             console.log('Validation errors. Cannot submit.');
+            
           }
-         
+          redirect('/');
         };
         
         return (

@@ -35,31 +35,46 @@ export const TrekDetails = () => {
   }, []);
 
   const GoBook = () => {
-    const isTrekker = TrekkerData.some((Trekker) => Trekker.Tre_Uname === user.username);
-
-    if (isTrekker) {
-      // If the user is a Trekker, allow navigation to the booking page
-      navigate(`/trekdetails/booking/${id}`);
+    if (user && user.username) {
+      const isTrekker = TrekkerData.some((Trekker) => Trekker.Tre_Uname === user.username);
+  
+      if (isTrekker) {
+        // If the user is a Trekker, allow navigation to the booking page
+        navigate(`/trekdetails/booking/${id}`);
+      } else {
+        // If the user is not a Trekker, show an alert
+        alert("Sorry, you can't do the booking, you are not a Trekker!!!");
+      }
     } else {
-      // If the user is not a Trekker, show an alert
-      alert("Sorry, you can't do the booking, you are not a Trekker!!!");
+      // If user or username is null, show an alert
+      alert("Sorry, you can't do the booking. Please log in to continue.");
     }
   };
 
-  return (
+   return (
     <>
       <Navbar />
-      {cardDetails ? (
-        <div>
-          <h1 style={{ color: 'green' }}>Overview</h1>
-          <p>{cardDetails.overview}</p>
-          <Button variant="success" onClick={GoBook} style={{ color: 'white', textDecoration: 'none', width: '100px' }}>
-            Book Now
-          </Button>
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+      <div className="container mt-4">
+        {cardDetails ? (
+          <div className='m-2 d-flex flex-column align-items-center'>
+            <h1 className='m-2' style={{ color: 'green' }}>Overview</h1>
+            <div className='m-2'>
+              <img src={cardDetails.imageUrl} alt='img' style={{ color: 'green', maxWidth: '100%' }} />
+            </div>
+            <p className='m-2'>{cardDetails.overview}</p>
+            <Button
+              variant="success"
+              onClick={GoBook}
+              className='m-2'
+              style={{ color: 'white', textDecoration: 'none', width: '100px' }}
+            >
+              Book Now
+            </Button>
+          </div>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
     </>
   );
 };

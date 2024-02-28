@@ -2,8 +2,9 @@ import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 const AuthContext = createContext();
 
+const storedUser = localStorage.getItem('user');
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || null,
+  user: storedUser ? JSON.parse(storedUser) : null,
 };
 
 const authReducer = (state, action) => {

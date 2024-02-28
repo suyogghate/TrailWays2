@@ -16,7 +16,12 @@ import { Card } from "./Card";
 
 export const Home = ({card}) => {
   // const {id, imageUrl, title, description} = card;
-  
+  const captionStyle = {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: '20px',
+    borderRadius: '5px', // Optional: Add border-radius for rounded corners
+    color: 'white', // Set text color to white
+  };
   return (
     <>
       <Navbar></Navbar>
@@ -24,7 +29,7 @@ export const Home = ({card}) => {
         <Carousel>
           <Carousel.Item interval={5000}>
             <img width={"1546"} height={"600"} src={basecamp} alt="Image One" />
-            <Carousel.Caption>
+            <Carousel.Caption style={captionStyle}>
               <h1>Winter Special Himalayan Trek</h1>
               <p>Explore the best of North</p>
             </Carousel.Caption>
@@ -36,7 +41,7 @@ export const Home = ({card}) => {
               src="https://www.treebo.com/blog/wp-content/uploads/2018/07/Trekking-Options-in-South-India.jpg"
               alt="Image Two"
             />
-            <Carousel.Caption>
+            <Carousel.Caption style={captionStyle}>
               <h3>Best of Kerala Backpacking</h3>
               <p>Dive into the Bliss of South</p>
             </Carousel.Caption>
@@ -48,7 +53,7 @@ export const Home = ({card}) => {
               src={basecamp2}
               alt="Image One"
             />
-            <Carousel.Caption>
+            <Carousel.Caption style={captionStyle}>
               <h3>Winter Special Himalayan Trek</h3>
               <p>Explore the best of North</p>
             </Carousel.Caption>
@@ -60,7 +65,7 @@ export const Home = ({card}) => {
               src={kalbhairav}
               alt="Image One"
             />
-            <Carousel.Caption>
+            <Carousel.Caption style={captionStyle}>
               <h3>Winter Special Himalayan Trek</h3>
               <p>Explore the best of North</p>
             </Carousel.Caption>

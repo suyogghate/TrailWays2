@@ -18,7 +18,7 @@ import SignOut from './components/SignOut';
 import { Adminsignin } from './components/Adminsignin';
 import AdminDash from './components/AdminDash';
 import { TrekList } from './components/TrekList';
-
+import UnauthorizedAccess from './components/UnauthorizedAccess';
 function App() {
   return (
     <AuthProvider>
@@ -40,6 +40,7 @@ function App() {
           <Route path="/signout" element={<SignOut/>}/>
           <Route path="/admindash" element={<AdminDash/>}/>
           <Route path="/treklist" element={<TrekList/>}/>
+          <Route path="/wrongaccess" element={<UnauthorizedAccess/>}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>
