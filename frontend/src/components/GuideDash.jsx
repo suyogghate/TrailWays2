@@ -11,16 +11,18 @@ const GuideDash = () => {
   const { user } = state;
   const redirect=useNavigate();
   const [GuideData, setGuideData] = useState([]);
+  const [guideDataLoaded, setGuideDataLoaded] = useState(false);
   useEffect(
     ()=>{
         axios.get("http://localhost:9000/guide")
-        .then((res)=>{setGuideData(res.data)})
+        .then((res)=>{setGuideData(res.data);
+          setGuideDataLoaded(true);})
         .catch(err=>console.log(err));
     },[]);
   
   
   // Now you can access user credentials, assuming they were set during login
-  if (user) {
+  if (user && guideDataLoaded) {
     const { username } = user;
     const guide = GuideData.find((guide) => guide.G_Uname === username);
     if (guide && guide.G_Uname === username) {

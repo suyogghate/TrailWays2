@@ -211,5 +211,61 @@ router.post('/addTrek', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+  router.get('/slots/:id',(req,res)=>{
+    connection.query("select S_RandomSlot, S_Slotdate, S_Tdidname from slot where S_TdIdname = ?",req.params.id,(err,data)=>{
+        if(err){
+            console.log(" error in finding data!! "+err);
+            res.json(err);
+        }
+        else{
+            console.log(data);
+            console.log("Executed Succesfully!!");
+            res.json(data);
+        }
+    });
+});
+router.get('/guidelicense',(req,res)=>{
+  connection.query("select `G_Uname`,`G_Name`,`GL_Color` from Guide G left join Guide_license Gl on G.G_Glno=Gl.Gl_lno where G.G_avail=1 order by Gl.GL_Color",(err,data)=>{
+      if(err){
+          console.log(" error in finding data!! "+err);
+          res.json(err);
+      }
+      else{
+          console.log(data);
+          console.log("Executed Succesfully!!");
+          res.json(data);
+      }
+  });
+});
+router.get('/trekdetails/:id',(req,res)=>{
+  connection.query("select * from trek_details where Td_Idname = ?",req.params.id,(err,data)=>{
+      if(err){
+          console.log(" error in finding data!! "+err);
+          res.json(err);
+      }
+      else{
+          console.log(data);
+          console.log("Executed Succesfully!!");
+          res.json(data);
+      }
+  });
+});
+
+router.post('/bookings',(req,res)=>{
+
+    
+    connection.query("select * from trek_details where Td_Idname = ?",req.params.id,(err,data)=>{
+        if(err){
+            console.log(" error in finding data!! "+err);
+            res.json(err);
+        }
+        else{
+            console.log(data);
+            console.log("Executed Succesfully!!");
+            res.json(data);
+        }
+    });
+  });
+  
 
 module.exports=router;

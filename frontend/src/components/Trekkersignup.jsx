@@ -87,31 +87,26 @@ export const Trekkersignup= () => {
       
         const handleSubmit = async (e) => {
           e.preventDefault();
-      
+
 
           // Validation check before submitting
           if (Object.values(validationErrors).every((error) => error === '')) {
-          
-            
             try {
               axios.post("http://localhost:9000/signup/trekker",trekkerData)
         .then((data)=>{console.log(data);
-          redirect('/');
-          redirect('/');})
+          redirect('/successrequest');
+          redirect('/successrequest');})
         .catch(err=>console.log(err)
         );
             } catch (error) {
               console.error('Error:', error.message);
-             redirect('/');
-             redirect('/');
+
             }
           } else {
             console.log('Validation errors. Cannot submit.');
-            
           }
           redirect('/');
         };
-        
         return (
             <>
             <Navbar/>

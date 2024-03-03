@@ -10,20 +10,23 @@ const AdminDash = () => {
   const { state } = useAuth();
   const { user } = state;
   const redirect=useNavigate();
+  const [adminDataLoaded, setAdminDataLoaded] = useState(false);
   const [AdminData, setAdminData] = useState([]);
-  useEffect(
-    ()=>{
-        axios.get("http://localhost:9000/admin")
-        .then((res)=>{setAdminData(res.data)})
-        .catch(err=>console.log(err));
-    },[]);
-  
+  useEffect(() => {
+    axios.get("http://localhost:9000/admin")
+      .then((res) => {
+        setAdminData(res.data);
+        setAdminDataLoaded(true);
+      })
+      .catch(err => console.log(err));
+  }, []);
   
   // Now you can access user credentials, assuming they were set during login
-  if (user) {
+  if (user && adminDataLoaded) {
     const { username } = user;
     const admin = AdminData.find((admin) => admin.A_Username === username);
-    if (admin && admin.A_Username === username) {
+  
+    if (admin) {
       console.log('Username:', username);
     } else {
       // Handle authentication failure

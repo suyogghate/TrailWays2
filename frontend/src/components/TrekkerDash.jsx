@@ -9,17 +9,19 @@ const TrekkerDash = () => {
   const { state } = useAuth();
   const { user } = state;
   const redirect=useNavigate();
+  const [trekkerDataLoaded, setTrekkerDataLoaded] = useState(false);
   const [TrekkerData, setTrekkerData] = useState([]);
   useEffect(
     ()=>{
         axios.get("http://localhost:9000/trekker")
-        .then((res)=>{setTrekkerData(res.data)})
+        .then((res)=>{setTrekkerData(res.data);
+          setTrekkerDataLoaded(true);})
         .catch(err=>console.log(err));
     },[]);
   
   
   // Now you can access user credentials, assuming they were set during login
-  if (user) {
+  if (user&&trekkerDataLoaded) {
     const { username } = user;
     const trekker = TrekkerData.find((trekker) => trekker.Tre_Uname === username);
     if (trekker && trekker.Tre_Uname === username) {

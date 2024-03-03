@@ -19,6 +19,7 @@ import { Adminsignin } from './components/Adminsignin';
 import AdminDash from './components/AdminDash';
 import { TrekList } from './components/TrekList';
 import UnauthorizedAccess from './components/UnauthorizedAccess';
+import SuccessfulRequest from './components/SuccessfulRequest';
 function App() {
   return (
     <AuthProvider>
@@ -41,7 +42,8 @@ function App() {
           <Route path="/admindash" element={<AdminDash/>}/>
           <Route path="/treklist" element={<TrekList/>}/>
           <Route path="/wrongaccess" element={<UnauthorizedAccess/>}/>
-        </Routes>
+          <Route path='/successrequest' element={<SuccessfulRequest/>}/>
+         </Routes>
       </BrowserRouter>
     </AuthProvider>
   );

@@ -106,9 +106,10 @@ export const Guidesignup= () => {
             
             try {
               axios.post("http://localhost:9000/signup/Guide",GuideData)
-        .then((data)=>{console.log(data)})
+        .then((data)=>{console.log(data);
+          redirect('/successrequest');
+          redirect('/successrequest');})
         .catch(err=>console.log(err));
-        redirect('/');
             } catch (error) {
               console.error('Error:', error.message);
               redirect('/');
