@@ -16,7 +16,7 @@ export const Booking = () => {
   const [formData, setFormData] = useState({
     A_Totalpeople: parseInt(0),
     A_TrekIdname: parseInt(id),
-    S_SlotDetails: '',
+    A_Slotdate: '',
     A_Trekkeruname:'',
     A_Guide: '',
     B_TotalAmount: 0
@@ -105,7 +105,7 @@ export const Booking = () => {
       axios.post("http://localhost:9000/bookings", formData)
         .then((data) => {
           console.log(data);
-          redirect('/successrequest');
+          redirect('/successbooking');
         })
         .catch(err => {
           console.log(formData);
@@ -137,21 +137,21 @@ export const Booking = () => {
             </div>
   
             <div className="mb-3">
-            <label htmlFor="S_SlotDetails" className="form-label">
+            <label htmlFor="A_Slotdate" className="form-label">
               Slot Details
             </label>
             <select
               className="form-control"
-              id="S_SlotDetails"
-              name="S_SlotDetails"
-              value={formData.S_SlotDetails}
+              id="A_Slotdate"
+              name="A_Slotdate"
+              value={formData.A_Slotdate}
               onChange={handleInputChange}
               required
             >
               <option value="" disabled>Select Slot Details</option>
               {
                 SlotData.map((slot) => (
-                  <option key={slot.S_RandomSlot} value={slot.S_RandomSlot}>
+                  <option key={slot.S_RandomSlot} value={slot.S_Slotdate}>
                     {`Random Slot: ${slot.S_RandomSlot}, Slot Date: ${new Date(slot.S_Slotdate).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} `}
                   </option>
                 ))
@@ -160,14 +160,14 @@ export const Booking = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="S_Guide" className="form-label">
+            <label htmlFor="A_Guide" className="form-label">
               Guide
             </label>
             <select
               className="form-control"
-              id="S_Guide"
-              name="S_Guide"
-              value={formData.S_Guide}
+              id="A_Guide"
+              name="A_Guide"
+              value={formData.A_Guide}
               onChange={handleInputChange}
               required
             >

@@ -5,6 +5,7 @@ import { Navbar } from './Navbar';
 import { Link,useNavigate } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
+import TrekkerDashTable from './TrekkerDashTable';
 const TrekkerDash = () => {
   const { state } = useAuth();
   const { user } = state;
@@ -34,19 +35,23 @@ const TrekkerDash = () => {
 
   return (
     <>
-    <Navbar/>
-    <br/>
-    <div className='d-flex justify-content-end m-2'><button className='btn btn-danger'><Link to='/signout' className='text-white'>Sign Out</Link></button></div>
-    <br/>
-    <div>
-      {user && (
-        <div>
-          <h2>Welcome, {user.username}!</h2>
-          {/* Other dashboard content */}
-        </div>
-      )}
-    </div>
-    <br/>
+      <Navbar />
+      <br />
+      <div className='d-flex justify-content-end m-2'>
+        <button className='btn btn-danger'>
+          <Link to='/signout' className='text-white'>Sign Out</Link>
+        </button>
+      </div>
+      <br />
+      <div className="text-center"> {/* Centering the heading */}
+        {user && (
+          <div>
+            <h1>Welcome, {user.username}!</h1>
+            <TrekkerDashTable />
+          </div>
+        )}
+      </div>
+      <br />
     </>
   );
 };

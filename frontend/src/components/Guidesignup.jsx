@@ -13,16 +13,12 @@ export const Guidesignup= () => {
           G_Dob: '',
           GL_Color:'',
           G_Lno:'',
-          GL_valid:''
+          GL_valid:'',
+          G_Image: null,
+          GL_Image:null
         });
         const redirect=useNavigate();
         const [validationErrors, setValidationErrors] = useState({});
-        const [GuideImage, setImageData] = useState({
-          G_Image: null
-        });
-        const [GuideLImage, setLImageData] = useState({
-          GL_Image: null
-        });
         const handleInputChange = (e) => {
           const { name, value } = e.target;
           setGuideData((prevData) => ({
@@ -83,41 +79,57 @@ export const Guidesignup= () => {
           }
         };
       
-        const handleImageChange = (e) => {
-          const file = e.target.files[0];
-          setImageData((prevData) => ({
-            ...prevData,
-            G_Image: file,
-          }));
-        };
-        const handleLImageChange = (e) => {
-          const file = e.target.files[0];
-          setLImageData((prevData) => ({
-            ...prevData,
-            GL_Image: file,
-          }));
-        };        const handleSubmit = async (e) => {
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setGuideData((prevData) => ({
+      ...prevData,
+      G_Image: file,
+    }));
+  };
+
+  const handleLImageChange = (e) => {
+    const file = e.target.files[0];
+    setGuideData((prevData) => ({
+      ...prevData,
+      GL_Image: file,
+    }));
+  };      
+    const handleSubmit = async (e) => {
           e.preventDefault();
       
-
           // Validation check before submitting
           if (Object.values(validationErrors).every((error) => error === '')) {
-          
-            
             try {
-              axios.post("http://localhost:9000/signup/Guide",GuideData)
-        .then((data)=>{console.log(data);
-          redirect('/successrequest');
-          redirect('/successrequest');})
-        .catch(err=>console.log(err));
+              const formData = new FormData();
+              formData.append('G_Uname', GuideData.G_Uname);
+              formData.append('G_Name', GuideData.G_Name);
+              formData.append('G_Email', GuideData.G_Email);
+              formData.append('G_Mobile', GuideData.G_Mobile);
+              formData.append('G_Adhaar', GuideData.G_Adhaar);
+              formData.append('G_Pass', GuideData.G_Pass);
+              formData.append('G_Dob', GuideData.G_Dob);
+              formData.append('GL_Color', GuideData.GL_Color);
+              formData.append('G_Lno', GuideData.G_Lno);
+              formData.append('GL_valid', GuideData.GL_valid);
+              formData.append('G_Image', GuideData.G_Image);
+              formData.append('GL_Image', GuideData.GL_Image);
+      
+              axios.post("http://localhost:9000/signup/guide", formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+              })
+                .then((data) => {
+                  console.log(data);
+                  redirect('/successrequest');
+                })
+                .catch(err => console.log(err));
             } catch (error) {
               console.error('Error:', error.message);
-              redirect('/');
             }
           } else {
             console.log('Validation errors. Cannot submit.');
           }
-         
         };
         
         return (

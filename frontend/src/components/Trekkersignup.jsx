@@ -11,12 +11,10 @@ export const Trekkersignup= () => {
           Tre_Adhaar: '',
           Tre_Pass: '',
           Tre_Dob: '',
+          Tre_Image: null
         });
         const redirect=useNavigate();
         const [validationErrors, setValidationErrors] = useState({});
-        const [trekkerImage, setImageData] = useState({
-          Tre_Image: null
-        });
         const handleInputChange = (e) => {
           const { name, value } = e.target;
           setTrekkerData((prevData) => ({
@@ -79,7 +77,7 @@ export const Trekkersignup= () => {
       
         const handleImageChange = (e) => {
           const file = e.target.files[0];
-          setImageData((prevData) => ({
+          setTrekkerData((prevData) => ({
             ...prevData,
             Tre_Image: file,
           }));
@@ -92,12 +90,26 @@ export const Trekkersignup= () => {
           // Validation check before submitting
           if (Object.values(validationErrors).every((error) => error === '')) {
             try {
-              axios.post("http://localhost:9000/signup/trekker",trekkerData)
-        .then((data)=>{console.log(data);
-          redirect('/successrequest');
-          redirect('/successrequest');})
-        .catch(err=>console.log(err)
-        );
+              const formData = new FormData();
+              formData.append('Tre_Uname', trekkerData.Tre_Uname);
+              formData.append('Tre_Name', trekkerData.Tre_Name);
+              formData.append('Tre_Email', trekkerData.Tre_Email);
+              formData.append('Tre_Mobile', trekkerData.Tre_Mobile);
+              formData.append('Tre_Adhaar', trekkerData.Tre_Adhaar);
+              formData.append('Tre_Pass', trekkerData.Tre_Pass);
+              formData.append('Tre_Dob', trekkerData.Tre_Dob);
+              formData.append('Tre_Image', trekkerData.Tre_Image);
+              
+              axios.post("http://localhost:9000/signup/trekker", formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                },
+              })
+                .then((data) => {
+                  console.log(data);
+                  redirect('/successrequest');
+                })
+                .catch(err => console.log(err));
             } catch (error) {
               console.error('Error:', error.message);
 
@@ -105,13 +117,12 @@ export const Trekkersignup= () => {
           } else {
             console.log('Validation errors. Cannot submit.');
           }
-          redirect('/');
         };
         return (
             <>
             <Navbar/>
             <br/>
-          <div className="container">
+          <div className="container" encType="multipart/form-data">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="Tre_Uname" className="form-label">

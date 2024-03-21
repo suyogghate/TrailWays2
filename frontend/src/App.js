@@ -20,6 +20,7 @@ import AdminDash from './components/AdminDash';
 import { TrekList } from './components/TrekList';
 import UnauthorizedAccess from './components/UnauthorizedAccess';
 import SuccessfulRequest from './components/SuccessfulRequest';
+import SuccessfulBooking from './components/SuccessfulBooking';
 function App() {
   return (
     <AuthProvider>
@@ -43,6 +44,7 @@ function App() {
           <Route path="/treklist" element={<TrekList/>}/>
           <Route path="/wrongaccess" element={<UnauthorizedAccess/>}/>
           <Route path='/successrequest' element={<SuccessfulRequest/>}/>
+          <Route path='/successbooking' element={<SuccessfulBooking/>}/>
          </Routes>
       </BrowserRouter>
     </AuthProvider>

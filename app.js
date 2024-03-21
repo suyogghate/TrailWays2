@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 app.use('/',routes);
-
+const PORT = process.env.PORT || 9000;
 const query = promisify(connection.query).bind(connection);
 
 cron.schedule('0 0 * * *', async () => {
@@ -31,7 +31,7 @@ cron.schedule('0 0 * * *', async () => {
   });
   
 
-app.listen(9000,()=>{
+app.listen(PORT,()=>{
     console.log("Server Listening on port 9000!!");
 })
 
